@@ -1,4 +1,8 @@
+import 'package:bmi_calculator/reusuable_card.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+import 'icon_content.dart';
 
 const bottomContainerHeight = 80.0;
 const bottomCardColor = Color(0xFFEB1555);
@@ -22,19 +26,28 @@ class _InputPageState extends State<InputPage> {
             child: Row(
               children: [
                 Expanded(
-                  child: Card(
+                  child: ReusableCard(
                     color: activeCardColor,
+                    child: IconContent(
+                      icon: FontAwesomeIcons.mars,
+                      label: 'MALE',
+                    ),
                   ),
                 ),
                 Expanded(
-                    child: Card(
-                  color: activeCardColor,
-                )),
+                  child: ReusableCard(
+                    color: activeCardColor,
+                    child: IconContent(
+                      icon: FontAwesomeIcons.venus,
+                      label: 'FEMALE',
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
           Expanded(
-            child: Card(
+            child: ReusableCard(
               color: activeCardColor,
             ),
           ),
@@ -42,12 +55,12 @@ class _InputPageState extends State<InputPage> {
             child: Row(
               children: [
                 Expanded(
-                  child: Card(
+                  child: ReusableCard(
                     color: activeCardColor,
                   ),
                 ),
                 Expanded(
-                  child: Card(
+                  child: ReusableCard(
                     color: activeCardColor,
                   ),
                 ),
@@ -61,23 +74,6 @@ class _InputPageState extends State<InputPage> {
             margin: EdgeInsets.only(top: 10.0),
           )
         ],
-      ),
-    );
-  }
-}
-
-class Card extends StatelessWidget {
-  Card({@required this.color});
-
-  final Color color;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.all(15.0),
-      decoration: BoxDecoration(
-        color: color,
-        borderRadius: BorderRadius.circular(10.0),
       ),
     );
   }
