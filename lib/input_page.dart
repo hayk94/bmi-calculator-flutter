@@ -15,6 +15,8 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
+  Gender selectedGender;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,11 +32,13 @@ class _InputPageState extends State<InputPage> {
                   child: GestureDetector(
                     onTap: () {
                       setState(() {
-                        updateColor(Gender.male);
+                        selectedGender = Gender.male;
                       });
                     },
                     child: ReusableCard(
-                      color: maleCardColor,
+                      color: selectedGender == Gender.male
+                          ? activeCardColor
+                          : inactiveCardColor,
                       child: IconContent(
                         icon: FontAwesomeIcons.mars,
                         label: 'MALE',
@@ -46,11 +50,13 @@ class _InputPageState extends State<InputPage> {
                   child: GestureDetector(
                     onTap: () {
                       setState(() {
-                        updateColor(Gender.female);
+                        selectedGender = Gender.female;
                       });
                     },
                     child: ReusableCard(
-                      color: femaleCardColor,
+                      color: selectedGender == Gender.female
+                          ? activeCardColor
+                          : inactiveCardColor,
                       child: IconContent(
                         icon: FontAwesomeIcons.venus,
                         label: 'FEMALE',
@@ -93,29 +99,29 @@ class _InputPageState extends State<InputPage> {
     );
   }
 
-  Color femaleCardColor = inactiveCardColor;
-  Color maleCardColor = inactiveCardColor;
+  // Color femaleCardColor = inactiveCardColor;
+  // Color maleCardColor = inactiveCardColor;
   // 1-male, 2-female
-  void updateColor(Gender gender) {
-    // male icon is pressed
-    if (gender == Gender.male) {
-      if (maleCardColor == inactiveCardColor) {
-        femaleCardColor = inactiveCardColor;
-        maleCardColor = activeCardColor;
-      } else {
-        maleCardColor = inactiveCardColor;
-      }
-    }
-    //  female icon is pressed
-    if (gender == Gender.female) {
-      if (femaleCardColor == inactiveCardColor) {
-        maleCardColor = inactiveCardColor;
-        femaleCardColor = activeCardColor;
-      } else {
-        femaleCardColor = inactiveCardColor;
-      }
-    }
-  }
+  // void updateColor(Gender gender) {
+  //   // male icon is pressed
+  //   if (gender == Gender.male) {
+  //     if (maleCardColor == inactiveCardColor) {
+  //       femaleCardColor = inactiveCardColor;
+  //       maleCardColor = activeCardColor;
+  //     } else {
+  //       maleCardColor = inactiveCardColor;
+  //     }
+  //   }
+  //   //  female icon is pressed
+  //   if (gender == Gender.female) {
+  //     if (femaleCardColor == inactiveCardColor) {
+  //       maleCardColor = inactiveCardColor;
+  //       femaleCardColor = activeCardColor;
+  //     } else {
+  //       femaleCardColor = inactiveCardColor;
+  //     }
+  //   }
+  // }
 }
 
 enum Gender { male, female }
