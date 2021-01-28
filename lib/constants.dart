@@ -43,7 +43,14 @@ const kBodyTextStyle = TextStyle(
 );
 
 const kResultsTextStyle = TextStyle(
-  color: Color(0xFF24D876),
   fontWeight: FontWeight.bold,
   fontSize: 22,
+);
+
+final kNormalResultsTextStyle = kResultsTextStyle.copyWith(
+  color: Color(0xFF24D876),
+);
+
+final kAlertResultsTextStyle = kResultsTextStyle.copyWith(
+  color: Colors.red,
 );

@@ -7,6 +7,12 @@ import 'package:flutter/rendering.dart';
 class ResultsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final ResultsPageArguments args = ModalRoute.of(context).settings.arguments;
+    final bmiResult = args.bmiResult;
+    final resultText = args.resultText;
+    final interpretation = args.interpretation;
+    final isNormal = args.isNormal;
+
     return Scaffold(
       appBar: AppBar(
         title: Text('BMI Calculator'),
@@ -34,15 +40,17 @@ class ResultsPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    'Normal',
-                    style: kResultsTextStyle,
+                    resultText.toUpperCase(),
+                    style: isNormal
+                        ? kNormalResultsTextStyle
+                        : kAlertResultsTextStyle,
                   ),
                   Text(
-                    '22',
+                    bmiResult,
                     style: kBMITextStyle,
                   ),
                   Text(
-                    'You are very thin! eat more! MORE !MORE MOREMORE',
+                    interpretation,
                     textAlign: TextAlign.center,
                     style: kBodyTextStyle,
                   ),
@@ -59,4 +67,18 @@ class ResultsPage extends StatelessWidget {
       ),
     );
   }
+}
+
+class ResultsPageArguments {
+  ResultsPageArguments({
+    @required this.bmiResult,
+    @required this.resultText,
+    @required this.interpretation,
+    @required this.isNormal,
+  });
+
+  final String bmiResult;
+  final String resultText;
+  final String interpretation;
+  final bool isNormal;
 }
