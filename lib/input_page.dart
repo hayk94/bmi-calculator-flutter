@@ -217,11 +217,17 @@ class _InputPageState extends State<InputPage> {
               Navigator.pushNamed(context, '/results');
             },
             child: Container(
-              child: Text('CALCULATE'),
+              child: Center(
+                child: Text(
+                  'CALCULATE',
+                  style: kLargeButtonTextStyle,
+                ),
+              ),
               width: double.infinity,
               color: kBottomCardColor,
               height: kBottomContainerHeight,
               margin: EdgeInsets.only(top: 10.0),
+              padding: EdgeInsets.only(bottom: 20),
             ),
           )
         ],
