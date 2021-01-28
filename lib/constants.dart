@@ -14,3 +14,8 @@ const kNumberTextStyle = TextStyle(
   fontSize: 50.0,
   fontWeight: FontWeight.w900,
 );
+
+const kHeightMinValue = 120.0;
+const kHeightMaxValue = 220.0;
+const kHeightSliderActiveColor = Color(0xFFEB1555);
+const kHeightSliderInactiveColor = Color(0xFF8d8e98);
