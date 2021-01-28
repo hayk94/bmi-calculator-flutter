@@ -21,3 +21,4 @@ const kHeightSliderActiveThumbColor = Color(0xFFEB1555);
 const kHeightSliderOverlayColor = Color(0x29EB1555);
 const kHeightSliderActiveTrackColor = Colors.white;
 const kHeightSliderInactiveColor = Color(0xFF8d8e98);
+const kRoundIconButtonBackgroundColor = Color(0xFF4C4F5E);
